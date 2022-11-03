@@ -1,0 +1,269 @@
+/* padrão de início */
+* {
+    margin: 0; /* distancia entre elementos */
+    padding: 0; /* distancia conteudo e borda */
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: rgb(95, 121, 159);
+    font-family: 'Popins', sans-serif;
+    
+}
+
+h1 {
+    color: #272932;
+    border:none;
+    margin: 0;
+    font-size: 3rem;
+    position:absolute;
+    top: 10px;
+}
+
+form {
+
+    color: #272932;
+    border:none;
+    margin: 0px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 60px;
+
+}
+
+.dataInputFilled{
+
+    display: none;
+
+}
+
+.dataBefore{
+
+    display:none;
+}
+.welcomeData{
+
+    display: flex;
+
+}
+
+#screenGame {
+    
+    width: 100vw;
+    height: 100vh;
+    cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/cursor_default.png), auto;
+    caret-color: transparent;
+    display: flex;
+    flex-direction: column;  /* row é padrão */
+    align-items: center; /*mover ele no eixo Y*/
+    justify-content: center; /*mover ele no eixo X*/
+    
+}
+
+/* .boardGame{
+
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    border:0;
+    min-width: 600px;
+    min-height: 600px;
+    max-width: 600px;
+    max-height: 600px;
+    margin-top: 100px;
+
+
+}*/
+
+#gridBoard{
+
+    display: flex;
+    flex-direction: row;  /* row é padrão */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 400px 50px 80px 50px;
+    min-width: 550px;
+    max-width: 550px;
+    min-height: 400px;
+    max-height: 400px;
+
+}
+
+#gridBoard > .board{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px; 
+
+}
+
+#gridBoard > .boardNumbers{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    background-color:aliceblue;
+    box-shadow: 6px 6px 6px 6px;
+}
+
+#gridBoard > .boardSymbol{
+    
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    background-color:aliceblue;
+    box-shadow: 6px 6px 6px 6px;
+}
+
+#gridBoard > .boardEmpty{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background-color:rgb(95, 121, 159);
+    
+}
+
+#gridBoard > .boardResult{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color:rgb(95, 121, 159);
+    
+}
+
+/* Quando o jogador iiniseriro número, o número e a sombra ficarão na cor aqua.*/
+#gridBoard > .boardOnClick{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: aqua;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px; 
+
+}
+
+/* Quando o jogador preencher todos os campo e errar. Os números e o shadow ficarão vermelhos. */
+
+#gridBoard > .boardOnLost{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: rgb(189, 42, 42);
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px; 
+
+}
+
+#gridNumbers{
+
+    display: flex;
+    flex-direction: row;  /* row é padrão */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 100px;
+    border:0;
+    min-width: 420px;
+    max-width: 420px;
+    min-height: 200px;
+    max-height: 200px;
+}
+
+#gridNumbers > .numbers{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: black;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px;
+
+}
+
+/* Quando o jogador clicar sobre um campo, esse ficará na cor aqua. A sombra também ficará na cor aqua.*/
+
+#gridNumbers > .numbersOnClick{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    color: aqua;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px;
+
+}
+
+
+/* Quando o jogador preencher todos os campo e errar. Os números e o shadow ficarão vermelhos. */
+
+#gridNumbers > .numbersOnLost{
+
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    color: rgb(189, 42, 42);
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px;
+
+}

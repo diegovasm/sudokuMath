@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=., initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>SudokuMath</title>
+</head>
+<body>
+
+    <article id="screenGame">
+        <h1>SudokuMath</h1>
+        <form>
+
+            <label class="dataInput" id="startLabel">Digite seu nome:</label>
+            <input class="dataInput" id="inputName" type="text" placeholder="Digite seu nome">
+            <button class="dataInput" id="btnStart">Jogar!</button>
+            <p class="dataBefore" id="welcome">Olá, <span id="name"></span>!</p>
+        </form>
+        <section>
+            <div id="gridBoard">
+                <div class="boardNumbers firstRow firstColumn"></div>
+                <div class="boardSymbol firstRow">x</div>
+                <div class="boardNumbers firstRow secondColumn"></div>
+                <div class="boardSymbol firstRow">-</div>
+                <div class="boardNumbers firstRow thirdColumn"></div>
+                <div class="boardResult firstRow">15</div>
+                <div class="boardSymbol secondRow firstColumn">-</div>
+                <div class="boardEmpty"></div>
+                <div class="boardSymbol sec">x</div>
+                <div class="boardEmpty"></div>
+                <div class="boardSymbol">+</div>
+                <div class="boardEmpty"></div>
+                <div class="boardNumbers"></div>
+                <div class="boardSymbol">x</div>
+                <div class="boardNumbers"></div>
+                <div class="boardSymbol">+</div>
+                <div class="boardNumbers"></div>
+                <div class="boardResult">41</div>
+                <div class="boardSymbol">+</div>
+                <div class="boardEmpty"></div>
+                <div class="boardSymbol">-</div>
+                <div class="boardEmpty"></div>
+                <div class="boardSymbol">-</div>
+                <div class="boardEmpty"></div>
+                <div class="boardNumbers"></div>
+                <div class="boardSymbol">+</div>
+                <div class="boardNumbers"></div>
+                <div class="boardSymbol">+</div>
+                <div class="boardNumbers"></div>
+                <div class="boardResult">7</div>
+                <div class="boardResult">5</div>
+                <div class="boardEmpty"></div>
+                <div class="boardResult">13</div>
+                <div class="boardEmpty"></div>
+                <div class="boardResult">14</div>
+                <div class="boardEmpty"></div>
+            </div>
+        </section>
+        <section id="sectionNumbers">
+            <div id="gridNumbers">
+                <div class="numbers"></div>
+                <div class="numbers">1</div>
+                <div class="numbers">2</div>
+                <div class="numbers">3</div>
+                <div class="numbers">4</div>
+                <div class="numbers">5</div>
+                <div class="numbers">6</div>
+                <div class="numbers">7</div>
+                <div class="numbers">8</div>
+                <div class="numbers">9</div>
+            </div>
+        </section>
+    </article>
+    <!-- LINK THE JAVASCRIPT FILES HERE (keep in mind that the order in which you link them MATTERS) -->
+    <script type = "module" src="./js/main.js"></script> <!--lógica (OOP)-->
+    <script type = "module" src="./js/dom.js"></script> <!--DOM conversar com o HTML e o CSS-->>
+</body>
+</html>
