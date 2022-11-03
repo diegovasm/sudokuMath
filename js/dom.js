@@ -18,8 +18,6 @@ class BoardGame {
             "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/cursor_9.png'),auto",
             "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/cursor_clear.png'),auto"
         ];
-        
-        this.tempStyleCursor = "";
     }
 
     // Seleciona os números na tabela de opções inferior
@@ -31,13 +29,15 @@ class BoardGame {
 
                 gridNumbers[1].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[1];
-                
+                this.selectGridBoardNumbers(1);
+                this.calculateResult();         
             }else{
 
                 gridNumbers[1].className = "numbers";
                 screenGame.style.cursor = this.cursor[0];
 
             }
+
             
         });
 
@@ -47,7 +47,8 @@ class BoardGame {
 
                 gridNumbers[2].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[2]
-                
+                this.selectGridBoardNumbers(2);
+                this.calculateResult();
             }else{
 
                 gridNumbers[2].className = "numbers";
@@ -64,7 +65,8 @@ class BoardGame {
 
                 gridNumbers[3].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[3];
-
+                this.selectGridBoardNumbers(3);
+                this.calculateResult();
             }else{
 
                 gridNumbers[3].className = "numbers";
@@ -81,7 +83,8 @@ class BoardGame {
 
                 gridNumbers[4].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[4]
-               
+                this.selectGridBoardNumbers(4);
+                this.calculateResult();
 
             }else{
 
@@ -99,7 +102,8 @@ class BoardGame {
 
                 gridNumbers[5].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[5]
-              
+                this.selectGridBoardNumbers(5);
+                this.calculateResult();
 
             }else{
 
@@ -117,8 +121,8 @@ class BoardGame {
 
                 gridNumbers[6].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[6]
-                
-
+                this.selectGridBoardNumbers(6);
+                this.calculateResult();
             }else{
 
                 gridNumbers[6].className = "numbers";
@@ -134,7 +138,8 @@ class BoardGame {
 
                 gridNumbers[7].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[7]
-
+                this.selectGridBoardNumbers(7);
+                this.calculateResult();
             }else{
 
                 gridNumbers[7].className = "numbers";
@@ -149,7 +154,8 @@ class BoardGame {
 
                 gridNumbers[8].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[8]
-
+                this.selectGridBoardNumbers(8);
+                this.calculateResult();
             }else{
 
                 gridNumbers[8].className = "numbers";
@@ -165,7 +171,8 @@ class BoardGame {
 
                 gridNumbers[9].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[9]
-
+                this.selectGridBoardNumbers(9);
+                this.calculateResult();
             }else{
 
                 gridNumbers[9].className = "numbers";
@@ -173,12 +180,12 @@ class BoardGame {
             }
             
         });
+       
     }
 
     // Seleciona o campo onde o número selecionado no métdo anterior será incluído.
     selectGridBoardNumbers(selectedNumber){
-        console.log("selectedNumber")
-
+       
         gridBoardNumbers[0].addEventListener("click", () => {
 
             // Insere o número na posição desejada do tabuleiro.
@@ -240,105 +247,109 @@ class BoardGame {
 
     }
 
-    boardFilling(){
+    calculateResult(){
+
+                
+        let sumFirstRow = Number(gridBoardNumbers[0].innerText) * 
+                      Number(gridBoardNumbers[1].innerText) - 
+                      Number(gridBoardNumbers[2].innerText);
         
-        for(let i = 0; i < gridNumbers.length;i++){
+        let sumFirstColumn = Number(gridBoardNumbers[0].innerText) - 
+                      Number(gridBoardNumbers[3].innerText) + 
+                      Number(gridBoardNumbers[6].innerText);
+        
+        let sumThirdRow = Number(gridBoardNumbers[3].innerText) * 
+                      Number(gridBoardNumbers[4].innerText) + 
+                      Number(gridBoardNumbers[5].innerText);
+        
+        let sumThirdColumn = Number(gridBoardNumbers[1].innerText) * 
+                      Number(gridBoardNumbers[4].innerText) - 
+                      Number(gridBoardNumbers[7].innerText);
+        
+        let sumFifthRow = Number(gridBoardNumbers[6].innerText) + 
+                      Number(gridBoardNumbers[7].innerText) + 
+                      Number(gridBoardNumbers[8].innerText);
+        
+        let sumFifthColumn = Number(gridBoardNumbers[2].innerText) + 
+                      Number(gridBoardNumbers[5].innerText) - 
+                      Number(gridBoardNumbers[8].innerText);
+                      
 
-            console.log(gridNumbers[i].className)
-           if(gridNumbers[i].className == "numbersOnClick"){
+        console.log(`${sumFirstRow} == ${Number(gridBoardResult[0].innerText)}`)
+        
+        firstRow.addEventListener("click", () =>{
 
-                this.selectGridBoardNumbers(gridNumbers[i].innerText);
+            if(sumFirstRow == Number(gridBoardResult[0].innerText)){
+                firstRow.className = "firstRowRight";
+                
+                
+            }else{
+    
+                firstRow.className = "firstRowWrong";
+    
+            }
 
-           }
+        });
+        
+        
+        if(sumThirdRow == Number(gridBoardResult[1].innerText)){
+            thirdRow.className = "thirdRowRight";
+            
+        }else{
+
+            
+            thirdRow.className = "thirdRowWrong";
+
         }
 
-       
+        if(sumFifthRow == Number(gridBoardResult[2].innerText)){
+            fifthRow.className = "fifthRowRight";
+            
+        }else{
+
+            
+            fifthRow.className = "fifthRowWrong";
+
+        }
+        if(sumFirstColumn == Number(gridBoardResult[3].innerText)){
+            firstColumn.className = "firstColumnRight";
+            
+        }else{
+
+            firstColumn.className = "firstColumnWrong";
+
+        }
+        
+        if(sumThirdColumn == Number(gridBoardResult[4].innerText)){
+            thirdColumn.className = "thirdColumnRight";
+            
+        }else{
+
+            
+            thirdColumn.className = "thirdColumnWrong";
+
+        }
+
+        if(sumFifthColumn == Number(gridBoardResult[5].innerText)){
+            fifthColumn.className = "fifthColumnRight";
+            
+        }else{
+
+            
+            fifthColumn.className = "fifthColumnWrong";
+
+        }
+        
+
     }
-
-    // calculateResult(){
-
-    //     let sumFirstRow, sumFirstColumn, sumSecondColumn, sumSecondRow, sumThirdColumn, sumThirdRow = 0; 
-        
-    //     sumFirstRow = Number(gridBoardNumbers[0].innerText) + 
-    //                   Number(gridBoardNumbers[1].innerText) + 
-    //                   Number(gridBoardNumbers[2].innerText);
-        
-    //     sumFirstColumn = Number(gridBoardNumbers[0].innerText) + 
-    //                   Number(gridBoardNumbers[3].innerText) + 
-    //                   Number(gridBoardNumbers[6].innerText);
-
-                      
-        
-    //     sumThirdRow = Number(gridBoardNumbers[3].innerText) + 
-    //                   Number(gridBoardNumbers[4].innerText) + 
-    //                   Number(gridBoardNumbers[5].innerText);
-        
-    //     sumSecondColumn = Number(gridBoardNumbers[1].innerText) + 
-    //                   Number(gridBoardNumbers[4].innerText) + 
-    //                   Number(gridBoardNumbers[7].innerText);
-        
-    //     sumFifthRow = Number(gridBoardNumbers[6].innerText) + 
-    //                   Number(gridBoardNumbers[7].innerText) + 
-    //                   Number(gridBoardNumbers[8].innerText);
-        
-    //     sumThirdColumn = Number(gridBoardNumbers[2].innerText) + 
-    //                   Number(gridBoardNumbers[5].innerText) + 
-    //                   Number(gridBoardNumbers[8].innerText);
-                      
-
-
-        
-    //     if(sumFirstRow == Number(gridBoardResult[0].innerText)){
-    //         document.querySelectorAll(".firstRow").className = "firstRowRight";
-            
-    //     }else{
-
-
-    //         document.querySelectorAll(".firstRow").className = "firstRowWrong";
-
-    //     }
-        
-    //     if(sumThirdRow == Number(gridBoardResult[0].innerText)){
-    //         document.querySelectorAll(".thirdRow").className = "thirdRowRight";
-            
-    //     }else{
-
-            
-    //         document.querySelectorAll(".thirdRow").className = "thirdRowWrong";
-
-    //     }
-
-    //     if(sumFifthRow == Number(gridBoardResult[0].innerText)){
-    //         document.querySelectorAll(".thirdRow").className = "thirdRowRight";
-            
-    //     }else{
-
-            
-    //         document.querySelectorAll(".thirdRow").className = "thirdRowWrong";
-
-    //     }
-        
-    //     // if(Number(gridBoardNumbers[0].innerText)
-    //     // console.log(textToNumber)
-    //     // console.log(gridBoardResult[0].innerText)
-
-
-
-    // }
     
 
     firstBoard(){
        // usuário seleciona os números a serem inserdos no tabuleiro
       
-       this.selectNumbers();
+       this.selectNumbers();      
 
-      
-    
-       // usuário preenche os valores do tabuleiro   
-       this.boardFilling();
-
-      
-       //this.calculateResult();
+       
 
     }
 
@@ -396,6 +407,14 @@ const gridBoardSymbol = document.querySelectorAll(".boardSymbol");
 // Representa o resultado apresentado, ao lado de cada linha ou coluna.
 const gridBoardResult = document.querySelectorAll(".boardResult");
 
+const firstRow = document.querySelectorAll(".firstRow");
+const thirdRow = document.querySelectorAll(".thirdRow");
+const fifthRow = document.querySelectorAll(".fifthRow");
+
+
+const firstColumn = document.querySelectorAll(".firstColumn");
+const thirdColumn = document.querySelectorAll(".thirdColumn");
+const fifthColumn = document.querySelectorAll(".fifthColumn");
 
 //Representa os números que compõem a base de seleção a ser utilizada no preenchimento do tabuleiro. 
 const gridNumbers = document.querySelectorAll(".numbers");

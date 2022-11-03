@@ -268,7 +268,7 @@ form {
 
 }
 
-.firstRow{
+/* #gridNumbers > .firstRow{
 
     width: 60px;
     height: 60px;
@@ -276,32 +276,34 @@ form {
     margin: 10px;
     font-size: 40px;
     font-weight: bolder;
-    border-radius: 8px;
-    text-align: center;
-    background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
-
-}
-
-.firstRowRight{
- 
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin: 10px;
-    font-size: 40px;
-    font-weight: bolder;
-    color: aqua;
+    color: black;
     border-radius: 8px;
     text-align: center;
     user-select: none;
     background-color: aliceblue;
-    box-shadow: 6px 6px 6px 6px; 
+    box-shadow: 6px 6px 6px 6px;
+
+} */
+
+.firstRowRight{
+ 
+    /* width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bolder; */
+    color: aqua;
+    /* border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    background-color: aliceblue;
+    box-shadow: 6px 6px 6px 6px;  */
 
 
 }
 
-.firstRowWrong{
+#gridNumbers > .firstRowWrong{
 
     width: 60px;
     height: 60px;
