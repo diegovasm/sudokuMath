@@ -160,6 +160,7 @@ form {
     text-align: center;
     user-select: none;
     background-color:rgb(95, 121, 159);
+
     
 }
 
@@ -183,7 +184,7 @@ form {
 
 /* Quando o jogador preencher todos os campo e errar. Os números e o shadow ficarão vermelhos. */
 
-#gridBoard > .boardOnLost{
+/* #gridBoard > .boardOnLost{
 
     width: 60px;
     height: 60px;
@@ -198,7 +199,7 @@ form {
     background-color: aliceblue;
     box-shadow: 6px 6px 6px 6px; 
 
-}
+} */
 
 #gridNumbers{
 
@@ -252,7 +253,7 @@ form {
 
 /* Quando o jogador preencher todos os campo e errar. Os números e o shadow ficarão vermelhos. */
 
-#gridNumbers > .numbersOnLost{
+/* #gridNumbers > .numbersOnLost{
 
     width: 60px;
     height: 60px;
@@ -266,9 +267,9 @@ form {
     background-color: aliceblue;
     box-shadow: 6px 6px 6px 6px;
 
-}
+} */
 
-/* #gridNumbers > .firstRow{
+.firstRow{
 
     width: 60px;
     height: 60px;
@@ -281,29 +282,29 @@ form {
     text-align: center;
     user-select: none;
     background-color: aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
-} */
+}
 
 .firstRowRight{
  
-    /* width: 60px;
+    width: 60px;
     height: 60px;
     line-height: 60px;
     margin: 10px;
     font-size: 40px;
-    font-weight: bolder; */
+    font-weight: bolder;
     color: aqua;
-    /* border-radius: 8px;
+    border-radius: 8px;
     text-align: center;
     user-select: none;
     background-color: aliceblue;
-    box-shadow: 6px 6px 6px 6px;  */
+    box-shadow: 6px 6px 6px 6px; 
 
 
 }
 
-#gridNumbers > .firstRowWrong{
+ /* .firstRowWrong{
 
     width: 60px;
     height: 60px;
@@ -319,7 +320,7 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+} */
 
 .thirdRow{
 
@@ -332,7 +333,7 @@ form {
     border-radius: 8px;
     text-align: center;
     background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
 }
 
@@ -354,7 +355,7 @@ form {
 
 }
 
-.thirdRowWrong{
+/*.thirdRowWrong{
 
     width: 60px;
     height: 60px;
@@ -370,7 +371,7 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+}*/
 
 .fifthRow{
 
@@ -383,7 +384,7 @@ form {
     border-radius: 8px;
     text-align: center;
     background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
 }
 
@@ -405,7 +406,7 @@ form {
 
 }
 
-.fifthRowWrong{
+/* .fifthRowWrong{
 
     width: 60px;
     height: 60px;
@@ -421,7 +422,7 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+} */
 
 .firstColumn{
 
@@ -434,7 +435,7 @@ form {
     border-radius: 8px;
     text-align: center;
     background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
 }
 
@@ -456,7 +457,7 @@ form {
 
 }
 
-.firstColumnWrong{
+/* .firstColumnWrong{
 
     width: 60px;
     height: 60px;
@@ -472,7 +473,7 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+} */
 
 .thirdColumn{
 
@@ -485,7 +486,7 @@ form {
     border-radius: 8px;
     text-align: center;
     background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
 }
 
@@ -507,7 +508,7 @@ form {
 
 }
 
-.thirdColumnWrong{
+/* .thirdColumnWrong{
 
     width: 60px;
     height: 60px;
@@ -523,7 +524,7 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+} */
 
 .fifthColumn{
 
@@ -536,7 +537,7 @@ form {
     border-radius: 8px;
     text-align: center;
     background-color:aliceblue;
-    box-shadow: 6px 6px 6px 6px;
+    /* box-shadow: 6px 6px 6px 6px; */
 
 }
 
@@ -558,7 +559,7 @@ form {
 
 }
 
-.fifthColumnWrong{
+/* .fifthColumnWrong{
 
     width: 60px;
     height: 60px;
@@ -574,4 +575,4 @@ form {
     box-shadow: 6px 6px 6px 6px; 
 
 
-}
+}  */

@@ -30,7 +30,8 @@ class BoardGame {
                 gridNumbers[1].className = "numbersOnClick";
                 screenGame.style.cursor = this.cursor[1];
                 this.selectGridBoardNumbers(1);
-                this.calculateResult();         
+                this.calculateResult();   
+                this.endOfTheGame();      
             }else{
 
                 gridNumbers[1].className = "numbers";
@@ -49,6 +50,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[2]
                 this.selectGridBoardNumbers(2);
                 this.calculateResult();
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[2].className = "numbers";
@@ -67,6 +69,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[3];
                 this.selectGridBoardNumbers(3);
                 this.calculateResult();
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[3].className = "numbers";
@@ -85,6 +88,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[4]
                 this.selectGridBoardNumbers(4);
                 this.calculateResult();
+                this.endOfTheGame();
 
             }else{
 
@@ -104,7 +108,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[5]
                 this.selectGridBoardNumbers(5);
                 this.calculateResult();
-
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[5].className = "numbers";
@@ -123,6 +127,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[6]
                 this.selectGridBoardNumbers(6);
                 this.calculateResult();
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[6].className = "numbers";
@@ -140,6 +145,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[7]
                 this.selectGridBoardNumbers(7);
                 this.calculateResult();
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[7].className = "numbers";
@@ -156,6 +162,7 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[8]
                 this.selectGridBoardNumbers(8);
                 this.calculateResult();
+                this.endOfTheGame();
             }else{
 
                 gridNumbers[8].className = "numbers";
@@ -173,14 +180,16 @@ class BoardGame {
                 screenGame.style.cursor = this.cursor[9]
                 this.selectGridBoardNumbers(9);
                 this.calculateResult();
+                this.endOfTheGame();
+                
             }else{
 
                 gridNumbers[9].className = "numbers";
                 screenGame.style.cursor = this.cursor[0]
+                
             }
             
         });
-       
     }
 
     // Seleciona o campo onde o número selecionado no métdo anterior será incluído.
@@ -190,8 +199,6 @@ class BoardGame {
 
             // Insere o número na posição desejada do tabuleiro.
             gridBoardNumbers[0].innerText = String(selectedNumber);
-
-            
 
         });
 
@@ -250,126 +257,200 @@ class BoardGame {
     calculateResult(){
 
                 
-        let sumFirstRow = Number(gridBoardNumbers[0].innerText) * 
-                      Number(gridBoardNumbers[1].innerText) - 
+        let sumFirstRow = (Number(gridBoardNumbers[0].innerText) * 
+                      Number(gridBoardNumbers[1].innerText)) - 
                       Number(gridBoardNumbers[2].innerText);
         
-        let sumFirstColumn = Number(gridBoardNumbers[0].innerText) - 
-                      Number(gridBoardNumbers[3].innerText) + 
-                      Number(gridBoardNumbers[6].innerText);
+        let sumFirstColumn = (-1)*(Number(gridBoardNumbers[0].innerText) - 
+                      (Number(gridBoardNumbers[3].innerText) * 
+                      Number(gridBoardNumbers[6].innerText)));
         
-        let sumThirdRow = Number(gridBoardNumbers[3].innerText) * 
-                      Number(gridBoardNumbers[4].innerText) + 
+        let sumThirdRow = (Number(gridBoardNumbers[3].innerText) * 
+                      Number(gridBoardNumbers[4].innerText)) + 
                       Number(gridBoardNumbers[5].innerText);
         
-        let sumThirdColumn = Number(gridBoardNumbers[1].innerText) * 
-                      Number(gridBoardNumbers[4].innerText) - 
+        let sumThirdColumn = (Number(gridBoardNumbers[1].innerText) * 
+                      Number(gridBoardNumbers[4].innerText)) + 
                       Number(gridBoardNumbers[7].innerText);
         
         let sumFifthRow = Number(gridBoardNumbers[6].innerText) + 
                       Number(gridBoardNumbers[7].innerText) + 
                       Number(gridBoardNumbers[8].innerText);
         
-        let sumFifthColumn = Number(gridBoardNumbers[2].innerText) + 
-                      Number(gridBoardNumbers[5].innerText) - 
+        let sumFifthColumn = (Number(gridBoardNumbers[2].innerText) * 
+                      Number(gridBoardNumbers[5].innerText)) - 
                       Number(gridBoardNumbers[8].innerText);
                       
 
-        console.log(`${sumFirstRow} == ${Number(gridBoardResult[0].innerText)}`)
-        
-        firstRow.addEventListener("click", () =>{
+        //Itera sobre os elementos da primeira linha e pinta todos de azul, caso os números indicados
+        //estejam corretos.              
+        firstRow.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumFirstRow == Number(gridBoardResult[0].innerText)) {
+                  firstRow.forEach((line) => {
+                  line.className = "firstRowRight";
+                });
+              } else {
+                   
+                firstRow.forEach((line) => {
+                    line.className = "firstRow";
+                });
 
-            if(sumFirstRow == Number(gridBoardResult[0].innerText)){
-                firstRow.className = "firstRowRight";
+                // lineOne.className = "firstRow";
+              }
+            });
+          });
+
+        //Itera sobre os elementos da terceira linha e pinta todos de azul, caso os números indicados
+        //estejam corretos.
+        thirdRow.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumThirdRow == Number(gridBoardResult[1].innerText)) {
+                  thirdRow.forEach((line) => {
+                  line.className = "thirdRowRight";
+                });
+              } else {
+                   
+                thirdRow.forEach((line) => {
+                    line.className = "thirdRow";
+                });
+                // lineOne.className = "thirdRow";
+              }
+            });
+          });
+
+        //Itera sobre os elementos da quinta linha e pinta todos de azul, caso os números indicados
+        //estejam corretos.
+        fifthRow.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumFifthRow == Number(gridBoardResult[2].innerText)) {
+                fifthRow.forEach((line) => {
+                  line.className = "fifthRowRight";
+                });
+              } else {
                 
+                fifthRow.forEach((line) => {
+                    line.className = "fifthRow";
+                });
+
+                // lineOne.className = "fifthRow";
+              }
+            });
+          });
+        
+        //Itera sobre os elementos da primeira coluna e pinta todos de azul, caso os números indicados
+        //estejam corretos.
+
+        firstColumn.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumFirstColumn == Number(gridBoardResult[3].innerText)) {
+                firstColumn.forEach((line) => {
+                  line.className = "firstColumnRight";
+                });
+              } else {
                 
-            }else{
-    
-                firstRow.className = "firstRowWrong";
-    
-            }
+                firstColumn.forEach((line) => {
+                    line.className = "firstColumn";
+                });
 
-        });
-        
-        
-        if(sumThirdRow == Number(gridBoardResult[1].innerText)){
-            thirdRow.className = "thirdRowRight";
-            
-        }else{
+                // lineOne.className = "firstColumn";
+              }
+            });
+          });
+          
+        //Itera sobre os elementos da terceira coluna e pinta todos de azul, caso os números indicados
+        //estejam corretos.
+        thirdColumn.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumThirdColumn == Number(gridBoardResult[4].innerText)) {
+                thirdColumn.forEach((line) => {
+                  line.className = "thirdColumnRight";
+                });
+              } else {
+                   
+                thirdColumn.forEach((line) => {
+                    line.className = "thirdColumn";
+                });
+                //lineOne.className = "thirdColumn";
+              }
+            });
+          });
 
-            
-            thirdRow.className = "thirdRowWrong";
+        //Itera sobre os elementos da quinta coluna e pinta todos de azul, caso os números indicados
+        //estejam corretos.
+        fifthColumn.forEach((lineOne) => {
+            lineOne.addEventListener("click", () => {
+              if (sumFifthColumn == Number(gridBoardResult[5].innerText)) {
+                fifthColumn.forEach((line) => {
+                  line.className = "fifthColumnRight";
+                });
+              } else {
+                
+                fifthColumn.forEach((line) => {
+                    line.className = "fifthColumn";
+                });
 
-        }
-
-        if(sumFifthRow == Number(gridBoardResult[2].innerText)){
-            fifthRow.className = "fifthRowRight";
-            
-        }else{
-
-            
-            fifthRow.className = "fifthRowWrong";
-
-        }
-        if(sumFirstColumn == Number(gridBoardResult[3].innerText)){
-            firstColumn.className = "firstColumnRight";
-            
-        }else{
-
-            firstColumn.className = "firstColumnWrong";
-
-        }
-        
-        if(sumThirdColumn == Number(gridBoardResult[4].innerText)){
-            thirdColumn.className = "thirdColumnRight";
-            
-        }else{
-
-            
-            thirdColumn.className = "thirdColumnWrong";
-
-        }
-
-        if(sumFifthColumn == Number(gridBoardResult[5].innerText)){
-            fifthColumn.className = "fifthColumnRight";
-            
-        }else{
-
-            
-            fifthColumn.className = "fifthColumnWrong";
-
-        }
-        
-
-    }
-    
-
-    firstBoard(){
-       // usuário seleciona os números a serem inserdos no tabuleiro
-      
-       this.selectNumbers();      
-
+                //lineOne.className = "fifthColumn";
+              }
+            });
+          });
+          
        
 
     }
+    
+    endOfTheGame(){
 
-    secondBoard(){
+        let sumFirstRow = (Number(gridBoardNumbers[0].innerText) * 
+        Number(gridBoardNumbers[1].innerText)) - 
+        Number(gridBoardNumbers[2].innerText);
 
+        let sumFirstColumn = (-1)*(Number(gridBoardNumbers[0].innerText) - 
+        (Number(gridBoardNumbers[3].innerText) * 
+        Number(gridBoardNumbers[6].innerText)));
+
+        let sumThirdRow = (Number(gridBoardNumbers[3].innerText) * 
+        Number(gridBoardNumbers[4].innerText)) + 
+        Number(gridBoardNumbers[5].innerText);
+
+        let sumThirdColumn = (Number(gridBoardNumbers[1].innerText) * 
+        Number(gridBoardNumbers[4].innerText)) + 
+        Number(gridBoardNumbers[7].innerText);
+
+        let sumFifthRow = Number(gridBoardNumbers[6].innerText) + 
+        Number(gridBoardNumbers[7].innerText) + 
+        Number(gridBoardNumbers[8].innerText);
+
+        let sumFifthColumn = (Number(gridBoardNumbers[2].innerText) * 
+        Number(gridBoardNumbers[5].innerText)) - 
+        Number(gridBoardNumbers[8].innerText);
+
+        if(
+            (sumFirstRow == Number(gridBoardResult[0].innerText))
+            &&
+            (sumThirdRow == Number(gridBoardResult[1].innerText))
+            &&
+            (sumFifthRow == Number(gridBoardResult[2].innerText))
+            &&
+            (sumFirstColumn == Number(gridBoardResult[3].innerText))
+            &&
+            (sumThirdColumn == Number(gridBoardResult[4].innerText))
+            &&
+            (sumFifthColumn == Number(gridBoardResult[5].innerText))
+            ){
+
+
+                setTimeout("location.reload(true);",5000);
+                alert(`Parabéns, ${this.userName}!!. Você venceu o jogo!!`);
+            }
     }
 
-    thirdBoard(){
+    firstBoard(){
+       // usuário seleciona os números a serem inserdos no tabuleiro      
+       this.selectNumbers();  
+       
 
     }
-    fourthBoard(){
-
-
-    }
-
-
-
-
-
-
 }
 
 
@@ -455,8 +536,6 @@ btnStart.addEventListener("click", (event) => {
 });
 
 function settingUpGame(){
-
-    
     //Criar um objeto do tipo tabuleiro
 
     const match = new BoardGame(inputName.value, gridBoard.innerText, gridNumbers.innerText);
@@ -464,23 +543,5 @@ function settingUpGame(){
     //Aqui eu devo chamar os métdoso criados dentro da classe BoardGame.
     
     match.firstBoard()
-    
-    
-    
-    
-    // Se o usuário vencer no primeiro cenário, apresentar a mensagem de felicitação e chamar o segundo cenário
-    //match.endOfLevelMessage() pode ser negativa ou positiva.
-    // se for negativa, deve apresentar mensagem lamentando e retornar para tela inicial, aguardando a inserção de um novo nome
-    
-    // Mesmos passos do firstBoard
-    //match.secondBoard();
-
-    //Mesmos passos do secondBoard
-    //match.thirdBoard();
-
-    // Se o usuário vencer apresentar as felicitações finais e volta para a tela inicial
-    //match.fourthBoard()
-    // Se o usuário perder, volta para tela inicial 
-
 
 }
