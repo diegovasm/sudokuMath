@@ -440,8 +440,11 @@ class BoardGame {
             ){
 
 
-                setTimeout("location.reload(true);",5000);
-                alert(`Parabéns, ${this.userName}!!. Você venceu o jogo!!`);
+                setTimeout(() => {
+
+                    alert(`Parabéns, ${this.userName}!!. Você venceu o jogo!!`);
+                    location.reload(true);
+                },5000);
             }
     }
 
